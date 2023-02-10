@@ -12,17 +12,17 @@ router.get("/getOne/:id", async (req, res) => {
   res.json(product);
 });
 
-router.post("/", (req, res) => {
+router.post("/addProduct", (req, res) => {
   console.log(req.body);
   res.send({ message: "post request" });
 });
 
-router.put("/", (req, res) => {
+router.patch("/updateProduct", (req, res) => {
   console.log(req.body);
   res.send({ message: "put request" });
 });
 
-router.delete("/", (req, res) => {
+router.delete("/removeProduct", (req, res) => {
   res.send({ message: "hello world" });
 });
 
