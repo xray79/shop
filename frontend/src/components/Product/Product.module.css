@@ -1,0 +1,30 @@
+.product {
+  padding: 0 0 3rem 0;
+  margin: 0.2rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  border: 1px black solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product:hover {
+  background-color: rgb(172, 154, 154);
+  box-shadow: 10px 5px 5px rgb(81, 76, 76);
+  transition: all ease-in 0.2s;
+  scale: 1.05;
+}
+
+.productImage {
+  height: 100%;
+  width: 100%;
+}
+
+.imgContainer {
+  background-color: red;
+  padding: 3rem 0;
+}
+
+.textContainer {
+  padding: 1rem;
+}
