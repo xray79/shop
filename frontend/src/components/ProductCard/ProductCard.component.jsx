@@ -1,4 +1,4 @@
-import styles from "./ProductCard.module.css";
+import s from "./ProductCard.module.css";
 
 const Product = ({ item }) => {
   /**
@@ -16,19 +16,17 @@ const Product = ({ item }) => {
   // }
 
   return (
-    <div className={styles.product}>
-      <div className={styles.imgContainer}>
-        <img
-          className={styles.productImage}
-          src={item.image}
-          alt={item.title}
-        />
+    <div className={s.product}>
+      <div className={s.imgContainer}>
+        <img className={s.productImage} src={item.image} alt={item.title} />
       </div>
-      <div className={styles.textContainer}>
+      <div className={s.textContainer}>
         <h2>{item.title}</h2>
         <span>£{item.price}</span>
         <p>{item.description.split(" ").slice(0, 20).join(" ")}...</p>
-        <a href="#">More info</a>
+        <a className={s.link} href="#">
+          More info
+        </a>
       </div>
     </div>
   );

@@ -2,17 +2,39 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
+import About from "./components/About/About.component.jsx";
+import Contact from "./components/Contact/Contact.component.jsx";
+import Login from "./components/LogIn/Login.component";
 import Shop from "./components/Shop/Shop.component.jsx";
+import Home from "./components/Home/Home.component.jsx";
 import "./index.css";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-  },
-  {
-    path: "shop",
-    element: <Shop />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "shop",
+        element: <Shop />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+    ],
   },
 ]);
 
@@ -21,5 +43,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
-
-// todo: add react router

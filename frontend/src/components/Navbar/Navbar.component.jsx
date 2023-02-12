@@ -1,19 +1,27 @@
-import styles from "./Navbar.module.css";
+import s from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className={styles.Navbar}>
+    <nav className={`${s.Navbar}`}>
       <ul>
-        <Link className={styles.home} to="/">
+        <Link className={`${s.navItem} ${s.home}`} to="/">
           Home
         </Link>
-        <Link to="shop">Shop</Link>
-        <li>About</li>
-        <li>Contact Us</li>
-        <li>Log In</li>
+        <Link className={`${s.navItem}`} to="shop">
+          Shop
+        </Link>
+        <Link className={`${s.navItem}`} to="about">
+          About
+        </Link>
+        <Link className={`${s.navItem}`} to="contact">
+          Contact Us
+        </Link>
+        <Link className={`${s.navItem}`} to="login">
+          Log In
+        </Link>
       </ul>
-    </div>
+    </nav>
   );
 };
 export default Navbar;

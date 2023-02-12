@@ -11,7 +11,7 @@ ul {
   justify-content: center;
 }
 
-li {
+.navItem {
   margin: 0 1rem;
 }
 
