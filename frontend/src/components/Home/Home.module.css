@@ -5,6 +5,7 @@
   padding: 2rem;
   max-width: 50%;
   margin: 0 auto;
+  gap: 1rem;
 }
 
 @media (max-width: 650px) {

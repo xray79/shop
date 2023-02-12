@@ -26,10 +26,9 @@ const Product = ({ item }) => {
       </div>
       <div className={styles.textContainer}>
         <h2>{item.title}</h2>
-        <span>{item.price}</span>
-        <p>{item.description}</p>
-        <span>{item.category}</span>
-        {/* <span>{item.rating.</span> */}
+        <span>£{item.price}</span>
+        <p>{item.description.split(" ").slice(0, 20).join(" ")}...</p>
+        <a href="#">More info</a>
       </div>
     </div>
   );

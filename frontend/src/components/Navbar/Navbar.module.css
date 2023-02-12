@@ -1,0 +1,20 @@
+.Navbar {
+  background-color: burlywood;
+  padding: 2rem;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li {
+  margin: 0 1rem;
+}
+
+.home {
+  margin-right: auto;
+}

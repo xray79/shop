@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Product from "../Product/Product.component";
 import styles from "./Home.module.css";
+import Navbar from "../Navbar/Navbar.component";
 
 const Home = () => {
   const [data, setData] = useState();
@@ -17,7 +18,7 @@ const Home = () => {
 
   return (
     <>
-      Home
+      <Navbar />
       <div className={styles.productsContainer}>
         {data ? (
           data.map((item) => (
