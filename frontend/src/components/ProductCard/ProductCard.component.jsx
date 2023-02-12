@@ -1,4 +1,4 @@
-import styles from "./Product.module.css";
+import styles from "./ProductCard.module.css";
 
 const Product = ({ item }) => {
   /**

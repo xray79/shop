@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Product from "../Product/Product.component";
+import Product from "../ProductCard/ProductCard.component";
 import styles from "./Home.module.css";
 import Navbar from "../Navbar/Navbar.component";
 
@@ -12,24 +12,12 @@ const Home = () => {
       .then((json) => setData(json));
   }, []);
 
-  const handleClick = () => {
-    console.log("what");
-  };
-
   return (
     <>
       <Navbar />
       <div className={styles.productsContainer}>
         {data ? (
-          data.map((item) => (
-            <Product
-              key={item._id}
-              item={item}
-              onClick={() => {
-                alert("he");
-              }}
-            />
-          ))
+          data.map((item) => <Product key={item._id} item={item} />)
         ) : (
           <div className="">Loading...</div>
         )}
