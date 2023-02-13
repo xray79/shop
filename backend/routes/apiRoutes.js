@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const Product = require("../models/productSchema");
 
+// Product crud operation handlers
+
 router.get("/getAll", async (req, res) => {
   const allProducts = await Product.find({});
   res.json(allProducts);
@@ -24,6 +26,16 @@ router.patch("/updateProduct", (req, res) => {
 
 router.delete("/removeProduct", (req, res) => {
   res.send({ message: "hello world" });
+});
+
+// Login and signup handlers
+
+router.post("/login", (req, res) => {
+  console.log("Login req recieved");
+});
+
+router.post("/signup", (req, res) => {
+  console.log("Signup req recieved");
 });
 
 module.exports = router;
