@@ -4,10 +4,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import About from "./components/About/About.component.jsx";
 import Contact from "./components/Contact/Contact.component.jsx";
-import Login from "./components/LogIn/Login.component";
+import Login from "./components/Login/Login.component.jsx";
 import Shop from "./components/Shop/Shop.component.jsx";
 import Home from "./components/Home/Home.component.jsx";
 import "./index.css";
+import Signup from "./components/Signup/Signup.component";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+      {
+        path: "signup",
+        element: <Signup />,
       },
     ],
   },
