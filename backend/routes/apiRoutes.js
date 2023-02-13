@@ -31,11 +31,25 @@ router.delete("/removeProduct", (req, res) => {
 // Login and signup handlers
 
 router.post("/login", (req, res) => {
-  console.log("Login req recieved");
+  const data = req.body;
+
+  res.json({
+    message: "login req recieved",
+    email: data.userEmail,
+    password: data.userPassword,
+  });
 });
 
 router.post("/signup", (req, res) => {
-  console.log("Signup req recieved");
+  const data = req.body;
+  console.log(data);
+
+  res.json({
+    message: "signup req recieved",
+    email: data.userEmail,
+    password: data.userPassword,
+    confirmPassword: data.userConfirmPassword,
+  });
 });
 
 module.exports = router;
