@@ -2,10 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import Product from "../ProductCard/ProductCard.component";
 import { AppContext } from "../../App";
 import s from "./Shop.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Shop = () => {
   const { appToken, setAppToken } = useContext(AppContext);
   const [data, setData] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:4000/api/getAll", {
@@ -22,6 +24,15 @@ const Shop = () => {
         console.error(err);
       });
   }, []);
+
+  const [isInitialRender, setIsInitialRender] = useState(true);
+  useEffect(() => {
+    if (isInitialRender) {
+      setIsInitialRender(false);
+    } else {
+      if (!appToken) navigate("/");
+    }
+  }, [appToken]);
 
   return (
     <>

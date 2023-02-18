@@ -18,3 +18,8 @@ ul {
 .home {
   margin-right: auto;
 }
+
+.logOut {
+  margin-left: 1rem;
+  cursor: pointer;
+}
