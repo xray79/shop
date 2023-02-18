@@ -1,0 +1,17 @@
+.errorContainer {
+  background-color: aliceblue;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.errorTitle {
+  margin-bottom: 2rem;
+}
+
+.errorLink {
+  background-color: turquoise;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+}

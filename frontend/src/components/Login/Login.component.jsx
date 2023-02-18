@@ -1,19 +1,22 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import s from "./Login.module.css";
+import { useState, useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AppContext } from "../../App";
 
 const Login = () => {
+  const { appToken, setAppToken } = useContext(AppContext);
+
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const data = {
       userEmail: email,
       userPassword: password,
     };
-    console.log(data);
 
     fetch("http://localhost:4000/api/login", {
       method: "POST",
@@ -24,9 +27,21 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
+        setAppToken(json.token);
+      })
+      .catch((err) => {
+        console.error(err);
       });
   };
+
+  const [isInitialRender, setIsInitialRender] = useState(true);
+  useEffect(() => {
+    if (isInitialRender) {
+      setIsInitialRender(false);
+    } else {
+      navigate("/shop");
+    }
+  }, [appToken]);
 
   return (
     <div className={s.container}>

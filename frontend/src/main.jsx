@@ -9,11 +9,13 @@ import Shop from "./components/Shop/Shop.component.jsx";
 import Home from "./components/Home/Home.component.jsx";
 import "./index.css";
 import Signup from "./components/Signup/Signup.component";
+import ErrorPage from "./components/Error/ErrorPage.component";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
