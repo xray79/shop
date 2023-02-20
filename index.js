@@ -1,29 +1,24 @@
-const bodyParser = require("body-parser");
 const Express = require("express");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 require("dotenv").config();
 require("./backend/models/db");
 
 const PORT = process.env.SERVER_PORT;
 
+// Initialise app, use resource sharing, accept JSON
 const app = Express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const errorHandler = (err, req, res, next) => {
-  if (err.name === "UnauthorizedError") {
-    return res.status(401).json({ message: "unauthorized" });
-  }
-  console.log("general error");
-  return res.status(500).json({ message: "general error" });
-  next();
-};
+// API Routes
+app.use("/api", require("./backend/routes/productRoutes"));
+app.use("/api", require("./backend/routes/loginRoutes"));
 
-const api = require("./backend/routes/apiRoutes");
-app.use("/api", api);
+// Error handler
+app.use(require("./backend/middleware/errorHandler"));
 
-app.use(errorHandler);
-
+// Start server
 app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`);
+  console.log(`Server started on http://localhost:${PORT}`);
 });
