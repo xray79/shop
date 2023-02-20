@@ -40,7 +40,7 @@ const Shop = () => {
         {data ? (
           data.map((item) => <Product key={item._id} item={item} />)
         ) : (
-          <div className="">Loading...</div>
+          <div>Loading...</div>
         )}
       </div>
     </>

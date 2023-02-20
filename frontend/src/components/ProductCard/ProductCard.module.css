@@ -1,7 +1,6 @@
 .product {
   border: 1px black solid;
   border-radius: 5px;
-  cursor: pointer;
 }
 
 .product:hover {
@@ -30,6 +29,8 @@
 .link {
   display: inline-block;
   text-decoration: none;
+  border: none;
+  cursor: pointer;
   color: black;
   margin-top: 2rem;
   background-color: lightblue;

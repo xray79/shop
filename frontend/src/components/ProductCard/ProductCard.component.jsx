@@ -11,9 +11,6 @@ const Product = ({ item }) => {
    * image: string
    * rating: obj}
    */
-  // for (const key in item) {
-  //   console.log(`${key}: ${item[key]}`);
-  // }
 
   return (
     <div className={s.product}>
@@ -24,9 +21,7 @@ const Product = ({ item }) => {
         <h2>{item.title}</h2>
         <span>£{item.price}</span>
         <p>{item.description.split(" ").slice(0, 20).join(" ")}...</p>
-        <a className={s.link} href="#">
-          More info
-        </a>
+        <button className={s.link}>Add to Cart</button>
       </div>
     </div>
   );

@@ -14,7 +14,6 @@ const Signup = () => {
       userPassword: password,
       userConfirmPassword: confirmPassword,
     };
-    console.log(data);
 
     fetch("http://localhost:4000/api/signup", {
       method: "POST",

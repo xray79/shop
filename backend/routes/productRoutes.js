@@ -6,10 +6,10 @@ const { expressjwt: expressJwt } = require("express-jwt");
 const {
   controlGetAll,
   controlGetOne,
-  controlAddProduct,
+  controlAdd,
   controlUpdate,
   controlDelete,
-} = require("../controllers/productsControllers");
+} = require("../controllers/productController");
 
 // Product crud routes
 router.get(
@@ -20,7 +20,7 @@ router.get(
 
 router.get("/getOne/:id", controlGetOne);
 
-router.post("/addProduct", controlAddProduct);
+router.post("/addProduct", controlAdd);
 
 router.patch("/updateProduct", controlUpdate);
 

@@ -13,7 +13,7 @@ const controlGetOne = async (req, res) => {
   res.json(product);
 };
 
-const controlAddProduct = (req, res) => {
+const controlAdd = (req, res) => {
   console.log(req.body);
   res.send({ message: "post request" });
 };
@@ -30,7 +30,7 @@ const controlDelete = (req, res) => {
 module.exports = {
   controlGetAll,
   controlGetOne,
-  controlAddProduct,
+  controlAdd,
   controlUpdate,
   controlDelete,
 };

@@ -5,29 +5,26 @@ import { AppContext } from "../../App";
 
 const Login = () => {
   const { appToken, setAppToken } = useContext(AppContext);
-
   const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = {
-      userEmail: email,
-      userPassword: password,
-    };
 
     fetch("http://localhost:4000/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        userEmail: email,
+        userPassword: password,
+      }),
     })
       .then((res) => res.json())
       .then((json) => {
-        setAppToken(json.token);
+        if (json.token) setAppToken(json.token);
       })
       .catch((err) => {
         console.error(err);

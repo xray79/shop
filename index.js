@@ -6,7 +6,7 @@ require("./backend/models/db");
 
 const PORT = process.env.SERVER_PORT;
 
-// Initialise app, use resource sharing, accept JSON
+// Initialise app, use resource sharing, use JSON
 const app = Express();
 app.use(cors());
 app.use(bodyParser.json());

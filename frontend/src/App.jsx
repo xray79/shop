@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.component";
 import { createContext, useState } from "react";
+import { ShoppingCartProvider } from "./contexts/ShoppingCartContext";
 
 export const AppContext = createContext(null);
 
@@ -9,10 +10,12 @@ function App() {
 
   return (
     <AppContext.Provider value={{ appToken, setAppToken }}>
-      <div className="App">
-        <Navbar />
-        <Outlet />
-      </div>
+      <ShoppingCartProvider value={{}}>
+        <div className="App">
+          <Navbar />
+          <Outlet />
+        </div>
+      </ShoppingCartProvider>
     </AppContext.Provider>
   );
 }
