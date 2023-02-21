@@ -28,14 +28,20 @@ const Product = ({ item, data }) => {
         }
       });
       setCartItems(cartPlaceholder);
-      console.log(cartItems);
+      // logs
+      cartItems.forEach((i) => {
+        console.log(i.title, i.quantity);
+      });
       return;
     }
 
     // if no match
     cartPlaceholder.push({ ...item, quantity: (item.quantity += 1) });
     setCartItems(cartPlaceholder);
-    console.log(cartItems);
+    // logs
+    cartItems.forEach((i) => {
+      console.log(i.title, i.quantity);
+    });
   };
 
   return (

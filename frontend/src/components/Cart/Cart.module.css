@@ -7,3 +7,16 @@
   font-size: 2rem;
   margin-bottom: 2rem;
 }
+
+.clear {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(206, 206, 187);
+}
+
+.total {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
