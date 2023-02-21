@@ -1,0 +1,9 @@
+.container {
+  max-width: 50%;
+  margin: 3rem auto;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}

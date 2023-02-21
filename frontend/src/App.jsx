@@ -1,22 +1,18 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.component";
-import { createContext, useState } from "react";
-import { ShoppingCartProvider } from "./contexts/ShoppingCartContext";
-
-export const AppContext = createContext(null);
+import { CartProvider } from "./contexts/CartContext";
+import { LoginProvider } from "./contexts/LoginContext";
 
 function App() {
-  const [appToken, setAppToken] = useState("");
-
   return (
-    <AppContext.Provider value={{ appToken, setAppToken }}>
-      <ShoppingCartProvider value={{}}>
+    <LoginProvider>
+      <CartProvider>
         <div className="App">
           <Navbar />
           <Outlet />
         </div>
-      </ShoppingCartProvider>
-    </AppContext.Provider>
+      </CartProvider>
+    </LoginProvider>
   );
 }
 

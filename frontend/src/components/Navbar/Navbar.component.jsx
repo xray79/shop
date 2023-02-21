@@ -1,10 +1,10 @@
 import s from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { AppContext } from "../../App";
+import { LoginContext } from "../../contexts/LoginContext";
 
 const Navbar = () => {
-  const { appToken, setAppToken } = useContext(AppContext);
+  const { loginToken, setLoginToken } = useContext(LoginContext);
 
   return (
     <nav className={`${s.Navbar}`}>
@@ -12,10 +12,15 @@ const Navbar = () => {
         <Link className={`${s.navItem} ${s.home}`} to="/">
           Home
         </Link>
-        {appToken ? (
-          <Link className={`${s.navItem}`} to="shop">
-            Shop
-          </Link>
+        {loginToken ? (
+          <>
+            <Link className={`${s.navItem}`} to="shop">
+              Shop
+            </Link>
+            <Link className={`${s.navItem}`} to="cart">
+              Cart
+            </Link>
+          </>
         ) : (
           ""
         )}
@@ -25,11 +30,11 @@ const Navbar = () => {
         <Link className={`${s.navItem}`} to="contact">
           Contact Us
         </Link>
-        {appToken ? (
+        {loginToken ? (
           <li
             className={s.logOut}
             onClick={() => {
-              setAppToken("");
+              setLoginToken("");
             }}
           >
             Log Out

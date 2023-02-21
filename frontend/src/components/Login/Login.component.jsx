@@ -1,10 +1,11 @@
 import s from "./Login.module.css";
 import { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AppContext } from "../../App";
+import { LoginContext } from "../../contexts/LoginContext";
 
 const Login = () => {
-  const { appToken, setAppToken } = useContext(AppContext);
+  const { loginToken, setLoginToken } = useContext(LoginContext);
+
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,7 +25,9 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((json) => {
-        if (json.token) setAppToken(json.token);
+        if (json.token) {
+          setLoginToken(json.token);
+        }
       })
       .catch((err) => {
         console.error(err);
@@ -38,7 +41,7 @@ const Login = () => {
     } else {
       navigate("/shop");
     }
-  }, [appToken]);
+  }, [loginToken]);
 
   return (
     <div className={s.container}>

@@ -9,6 +9,7 @@ const {
 
 // Login and signup routes
 router.post("/login", controlLogin);
+
 router.post("/signup", controlSignup);
 
 module.exports = router;

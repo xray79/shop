@@ -3,7 +3,7 @@ const errorHandler = (err, req, res, next) => {
     return res.status(401).json({ message: "unauthorized" });
   }
   console.log("general error");
-  return res.status(500).json({ message: "general error" });
+  res.status(500).json({ message: "general error" });
   next();
 };
 

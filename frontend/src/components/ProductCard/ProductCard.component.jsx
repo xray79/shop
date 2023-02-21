@@ -1,16 +1,42 @@
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 import s from "./ProductCard.module.css";
 
-const Product = ({ item }) => {
-  /**
-   * item shape:
-   * {id: num,
-   * title: string
-   * price: num
-   * description: string
-   * category: string
-   * image: string
-   * rating: obj}
-   */
+/** item shape = {
+ * id: num,
+ * title: string
+ * price: num
+ * description: string
+ * category: string
+ * image: string
+ * rating: obj
+ * quantity: num
+ * } */
+
+const Product = ({ item, data }) => {
+  const { cartItems, setCartItems } = useContext(CartContext);
+
+  const handleAddToCart = () => {
+    let cartPlaceholder = cartItems;
+
+    // find match
+    const isMatch = cartPlaceholder.find((i) => i.id === item.id);
+    if (isMatch) {
+      cartPlaceholder.forEach((i) => {
+        if (i.id === item.id) {
+          i.quantity += 1;
+        }
+      });
+      setCartItems(cartPlaceholder);
+      console.log(cartItems);
+      return;
+    }
+
+    // if no match
+    cartPlaceholder.push({ ...item, quantity: (item.quantity += 1) });
+    setCartItems(cartPlaceholder);
+    console.log(cartItems);
+  };
 
   return (
     <div className={s.product}>
@@ -21,7 +47,9 @@ const Product = ({ item }) => {
         <h2>{item.title}</h2>
         <span>£{item.price}</span>
         <p>{item.description.split(" ").slice(0, 20).join(" ")}...</p>
-        <button className={s.link}>Add to Cart</button>
+        <button className={s.link} onClick={handleAddToCart}>
+          Add to Cart
+        </button>
       </div>
     </div>
   );
