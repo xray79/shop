@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 // API Routes
 app.use("/api", require("./backend/routes/productRoutes"));
 app.use("/api", require("./backend/routes/loginRoutes"));
+app.use("/api", require("./backend/routes/paymentRoutes"));
 
 // Error handler
 app.use(require("./backend/middleware/errorHandler"));

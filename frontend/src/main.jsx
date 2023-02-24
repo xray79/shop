@@ -11,6 +11,7 @@ import "./index.css";
 import Signup from "./components/Signup/Signup.component";
 import ErrorPage from "./components/Error/ErrorPage.component";
 import ShoppingCart from "./components/Cart/Cart.component";
+import Success from "./components/Success/Success.component";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       { path: "login", element: <Login /> },
       { path: "signup", element: <Signup /> },
+      { path: "success", element: <Success /> },
     ],
   },
 ]);

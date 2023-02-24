@@ -8,7 +8,7 @@ const ShoppingCart = () => {
   const { cartItems, setCartItems } = useContext(CartContext);
   const [isModalActive, setIsModalActive] = useState(false);
   const [total, setTotal] = useState(0);
-  const [update, setUpdate] = useState(0);
+  const [update, setUpdate] = useState(false);
 
   useEffect(() => {
     calculateTotal();
@@ -36,6 +36,7 @@ const ShoppingCart = () => {
         <CheckoutModal
           isModalActive={isModalActive}
           setIsModalActive={setIsModalActive}
+          total={total}
         />
       ) : (
         ""
@@ -56,7 +57,7 @@ const ShoppingCart = () => {
       </button>
       <p className={s.total}>Total: £{total}</p>
       <button className={`${s.btn} ${s.checkout}`} onClick={handleCheckout}>
-        Checkout
+        Payment Details
       </button>
     </section>
   );

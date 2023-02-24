@@ -10,7 +10,7 @@ const CartProduct = ({ item, update, setUpdate }) => {
     findAndUpdateCart();
 
     // trigger rerender in parent component
-    setUpdate(update + 1);
+    setUpdate(!update);
   }, [productQuantity]);
 
   const findAndUpdateCart = () => {
