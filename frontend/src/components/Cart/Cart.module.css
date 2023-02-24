@@ -8,7 +8,7 @@
   margin-bottom: 2rem;
 }
 
-.clear {
+.btn {
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -19,4 +19,8 @@
 .total {
   font-size: 2rem;
   margin-top: 2rem;
+}
+
+.checkout {
+  background-color: rgb(171, 207, 126);
 }

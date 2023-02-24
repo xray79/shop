@@ -4,3 +4,16 @@
   margin: 1rem 0;
   border-radius: 10px;
 }
+
+.btnGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btnGroup > button {
+  padding: 0 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: aliceblue;
+  cursor: pointer;
+}

@@ -27,6 +27,7 @@ const Product = ({ item, data }) => {
           i.quantity += 1;
         }
       });
+
       setCartItems(cartPlaceholder);
       // logs
       cartItems.forEach((i) => {

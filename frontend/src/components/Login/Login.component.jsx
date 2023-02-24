@@ -38,7 +38,7 @@ const Login = () => {
   useEffect(() => {
     if (isInitialRender) {
       setIsInitialRender(false);
-    } else {
+    } else if (loginToken) {
       navigate("/shop");
     }
   }, [loginToken]);
@@ -72,6 +72,8 @@ const Login = () => {
         <button className={s.btn} type="submit">
           Log in
         </button>
+        <p>Login: a</p>
+        <p>Password: asdfgh</p>
       </form>
       <div className={s.signupContainer}>
         <p className={s.signupText}>Dont have an account?</p>
