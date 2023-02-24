@@ -20,12 +20,14 @@ const CheckoutModal = ({ isModalActive, setIsModalActive, total }) => {
         Authorization: `Bearer ${loginToken}`,
       },
       method: "POST",
+      body: JSON.stringify(cartItems),
     })
       .then((res) => {
-        if (res.ok) navigate("/success");
+        if (res.ok) res.json();
       })
       .then((json) => {
         console.log(json);
+        navigate("/success");
       })
       .catch((err) => console.error(err));
   };
