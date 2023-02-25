@@ -14,7 +14,7 @@ const Shop = () => {
   // Make api call
   useEffect(() => {
     if (!data)
-      fetch("http://localhost:4000/api/getAll", {
+      fetch("./api/getAll", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${loginToken}`,

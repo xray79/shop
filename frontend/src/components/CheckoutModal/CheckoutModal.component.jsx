@@ -14,7 +14,7 @@ const CheckoutModal = ({ isModalActive, setIsModalActive, total }) => {
   };
 
   const handleSendData = () => {
-    fetch("http://localhost:4000/api/pay", {
+    fetch("./api/pay", {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${loginToken}`,

@@ -15,7 +15,7 @@ const Signup = () => {
       userConfirmPassword: confirmPassword,
     };
 
-    fetch("http://localhost:4000/api/signup", {
+    fetch("./api/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
