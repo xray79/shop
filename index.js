@@ -5,18 +5,22 @@ const path = require("path");
 require("dotenv").config();
 require("./backend/models/db");
 
+// env variables
 const PORT = process.env.SERVER_PORT;
+const NODE_ENV = process.env.NODE_ENV;
 
 // Initialise app, use resource sharing, use JSON
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// serve frontend
-app.use(express.static(path.join(__dirname, "frontend", "dist")));
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
-});
+// serve frontend on production
+if (NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "frontend", "dist")));
+  app.get("/", (_, res) => {
+    res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+  });
+}
 
 // API Routes
 app.use("/api", require("./backend/routes/productRoutes"));
