@@ -1,15 +1,22 @@
-const Express = require("express");
+const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const path = require("path");
 require("dotenv").config();
 require("./backend/models/db");
 
 const PORT = process.env.SERVER_PORT;
 
 // Initialise app, use resource sharing, use JSON
-const app = Express();
+const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+
+// serve frontend
+app.use(express.static(path.join(__dirname, "frontend", "dist")));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+});
 
 // API Routes
 app.use("/api", require("./backend/routes/productRoutes"));

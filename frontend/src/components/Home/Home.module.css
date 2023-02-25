@@ -1,0 +1,24 @@
+.container {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 5rem 0;
+  position: relative;
+  height: 100%;
+}
+
+.hero {
+  background-color: red;
+  height: 100vh;
+}
+
+.titleContainer {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.title {
+  font-size: 4rem;
+}
