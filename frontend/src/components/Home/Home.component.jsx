@@ -22,6 +22,39 @@ const Home = () => {
           />
         </div>
       </section>
+
+      <section className={s.featuresSection} id="features">
+        <div className={s.featuresContainer}>
+          <h2 className={s.featuresTitle}>What We Offer</h2>
+
+          <div className={s.cardsContainer}>
+            <div className={s.card}>
+              <h3 className={s.cardTitle}>Price</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Suscipit quas, quod architecto cupiditate alias numquam
+                voluptas! Unde eveniet culpa architecto.
+              </p>
+            </div>
+            <div className={s.card}>
+              <h3 className={s.cardTitle}>Delivery</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Suscipit quas, quod architecto cupiditate alias numquam
+                voluptas! Unde eveniet culpa architecto.
+              </p>
+            </div>
+            <div className={s.card}>
+              <h3 className={s.cardTitle}>Convenience</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Suscipit quas, quod architecto cupiditate alias numquam
+                voluptas! Unde eveniet culpa architecto.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

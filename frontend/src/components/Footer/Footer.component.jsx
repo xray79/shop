@@ -1,11 +1,14 @@
 import s from "./Footer.module.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div className={s.mainContainer}>
       <div className={s.footerGrid}>
         <div className={s.gridColumn}>
-          <span className={s.columnTitle}>Home</span>
+          <Link to={"/"} className={s.columnTitle}>
+            Home
+          </Link>
           <ul className={s.columnList}>
             <li>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -15,7 +18,9 @@ const Footer = () => {
           </ul>
         </div>
         <div className={s.gridColumn}>
-          <span className={s.columnTitle}>Shop</span>
+          <Link to={"/shop"} className={s.columnTitle}>
+            Shop
+          </Link>
           <ul className={s.columnList}>
             <li>Lorem ipsum dolor sit amet consectetur.</li>
             <li>
@@ -26,7 +31,9 @@ const Footer = () => {
           </ul>
         </div>
         <div className={s.gridColumn}>
-          <span className={s.columnTitle}>Cart</span>
+          <Link to={"/cart"} className={s.columnTitle}>
+            Cart
+          </Link>
           <ul className={s.columnList}>
             <li>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -36,7 +43,9 @@ const Footer = () => {
           </ul>
         </div>
         <div className={s.gridColumn}>
-          <span className={s.columnTitle}>Checkout</span>
+          <Link to={"/checkout"} className={s.columnTitle}>
+            Checkout
+          </Link>
           <ul className={s.columnList}>
             <li>Lorem ipsum dolor sit amet.</li>
             <li>
@@ -46,7 +55,9 @@ const Footer = () => {
           </ul>
         </div>
         <div className={s.gridColumn}>
-          <span className={s.columnTitle}>Login</span>
+          <Link to={"Login"} className={s.columnTitle}>
+            Login
+          </Link>
           <ul className={s.columnList}>
             <li>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit
