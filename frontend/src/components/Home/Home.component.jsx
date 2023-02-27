@@ -14,14 +14,12 @@ const Home = () => {
               Sign up now
             </Link>
           </div>
-          {/* <div> */}
           <img
             className={s.mainImg}
-            src="../src/assets/web-shopping.svg"
+            src="./web-shopping.svg"
             alt=""
             srcset=""
           />
-          {/* </div> */}
         </div>
       </section>
     </>

@@ -1,0 +1,33 @@
+.mainContainer {
+  width: 100%;
+  background-color: rgb(53, 49, 49);
+  color: white;
+  text-align: center;
+
+  padding: 2rem;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  background-color: rgb(53, 49, 49);
+  padding: 2rem;
+  padding-bottom: 4rem;
+}
+
+.gridColumn {
+  text-align: left;
+}
+
+.columnTitle {
+  font-size: 1.2rem;
+  color: rgb(90, 90, 135);
+}
+
+.columnList {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: 1.5rem;
+}
