@@ -1,3 +1,4 @@
+import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -7,7 +8,6 @@ import Contact from "./components/Contact/Contact.component";
 import Login from "./components/Login/Login.component";
 import Shop from "./components/Shop/Shop.component";
 import Home from "./components/Home/Home.component";
-import "./index.css";
 import Signup from "./components/Signup/Signup.component";
 import ErrorPage from "./components/Error/ErrorPage.component";
 import ShoppingCart from "./components/Cart/Cart.component";

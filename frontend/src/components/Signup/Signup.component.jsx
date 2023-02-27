@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { PROXY } from "../../utils/config";
 import s from "./Signup.module.css";
 
 const Signup = () => {
@@ -15,7 +16,7 @@ const Signup = () => {
       userConfirmPassword: confirmPassword,
     };
 
-    fetch("./api/signup", {
+    fetch(PROXY + "/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

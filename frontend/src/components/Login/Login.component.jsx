@@ -2,6 +2,7 @@ import s from "./Login.module.css";
 import { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginContext } from "../../contexts/LoginContext";
+import { PROXY } from "../../utils/config";
 
 const Login = () => {
   const { loginToken, setLoginToken } = useContext(LoginContext);
@@ -13,7 +14,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("./api/login", {
+    fetch(PROXY + "/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,6 +26,7 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((json) => {
+        console.log(json);
         if (json.token) {
           setLoginToken(json.token);
         }

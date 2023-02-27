@@ -9,6 +9,10 @@
   scale: 1.05;
 }
 
+.product:active {
+  scale: 0.95;
+}
+
 .imgContainer {
   /* background-color: red; */
   margin-top: 2rem;

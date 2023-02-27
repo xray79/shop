@@ -1,24 +1,46 @@
-.container {
-  max-width: 70rem;
-  margin: 0 auto;
-  padding: 5rem 0;
-  position: relative;
-  height: 100%;
+:root {
+  --title-margin: 10rem;
 }
 
 .hero {
-  background-color: red;
+  background-color: aliceblue;
   height: 100vh;
+  width: 100%;
+}
+
+.flexContainer {
+  height: 100%;
+  margin: 0 auto;
+  padding: 5rem 5rem;
+  display: flex;
 }
 
 .titleContainer {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  text-align: left;
+  display: inline-block;
+  margin: var(--title-margin) auto 0 var(--title-margin);
 }
 
 .title {
   font-size: 4rem;
+}
+
+.subtitle {
+  margin-bottom: 2rem;
+}
+
+.btn {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnCta {
+  background-color: rgb(247, 82, 82);
+}
+
+.mainImg {
+  max-width: 50%;
+  object-fit: contain;
 }

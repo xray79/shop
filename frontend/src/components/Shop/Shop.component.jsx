@@ -4,6 +4,7 @@ import s from "./Shop.module.css";
 import { useNavigate } from "react-router-dom";
 import { LoginContext } from "../../contexts/LoginContext";
 import { CartContext } from "../../contexts/CartContext";
+import { PROXY } from "../../utils/config";
 
 const Shop = () => {
   // Initialise hooks
@@ -14,7 +15,7 @@ const Shop = () => {
   // Make api call
   useEffect(() => {
     if (!data)
-      fetch("./api/getAll", {
+      fetch(PROXY + "/getAll", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${loginToken}`,

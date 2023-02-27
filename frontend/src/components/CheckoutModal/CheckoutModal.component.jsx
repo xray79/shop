@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
 import { LoginContext } from "../../contexts/LoginContext";
+import { PROXY } from "../../utils/config";
 import s from "./CheckoutModal.module.css";
 
 const CheckoutModal = ({ isModalActive, setIsModalActive, total }) => {
@@ -14,7 +15,7 @@ const CheckoutModal = ({ isModalActive, setIsModalActive, total }) => {
   };
 
   const handleSendData = () => {
-    fetch("./api/pay", {
+    fetch(PROXY + "/pay", {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${loginToken}`,
