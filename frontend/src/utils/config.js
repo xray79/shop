@@ -1,2 +1,3 @@
-export const PROXY = "";
-// "http://localhost:4000/api";
+export const PROXY = "/api";
+
+// http://localhost:4000
