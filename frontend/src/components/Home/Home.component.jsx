@@ -55,6 +55,39 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <section className={s.infoOne} id="info-1">
+        <div className={s.flexContainer}>
+          <div>
+            <img className={s.bagImg} src="./bear.jpg" alt="just a bag" />
+          </div>
+          <div className={s.infoOneTextContainer}>
+            <h2 className={s.infoOneTitle}>Our satisfied customers</h2>
+            <p className={s.infoOneParagraph}>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem
+              illum excepturi quae obcaecati tenetur architecto optio recusandae
+              molestias facilis, tempora quisquam quis suscipit adipisci sint.
+              Corporis accusantium qui placeat cupiditate! Quam molestias
+              inventore nulla ducimus.
+            </p>
+            <p className={s.infoOneParagraph}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+              autem officiis commodi accusamus dicta minima suscipit eius amet
+              quaerat veniam saepe eaque voluptas reprehenderit sed, vel
+              asperiores assumenda, dignissimos velit consequatur recusandae
+              omnis repellendus inventore nulla. Placeat, atque et! Quas veniam,
+              maxime nostrum velit asperiores culpa facere molestias mollitia
+              necessitatibus?
+            </p>
+            <p className={s.infoOneParagraph}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+              expedita reprehenderit exercitationem incidunt eligendi pariatur
+              in corporis eius quidem magni.
+            </p>
+            <button className={`${s.btn} ${s.infoOneBtn}`}>Read More</button>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

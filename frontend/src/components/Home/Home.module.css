@@ -1,7 +1,3 @@
-:root {
-  --title-margin: 10rem;
-}
-
 .hero {
   background-color: aliceblue;
   height: 100vh;
@@ -50,7 +46,7 @@
 .featuresSection {
   min-height: 100vh;
   width: 100%;
-  background-color: blanchedalmond;
+  background-color: var(--primary-light);
 }
 
 .featuresContainer {
@@ -66,7 +62,6 @@
 
 .cardsContainer {
   margin-top: 2.5rem;
-  /* background-color: red; */
   height: 30rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -88,4 +83,35 @@
 
 .cardTitle {
   font-size: 2rem;
+}
+
+/* FIRST INFO SECTION */
+
+.infoOne {
+  width: 100%;
+  background-color: var(--secondary-light);
+}
+
+.bagImg {
+  width: 35rem;
+  margin: 3rem 0;
+}
+
+.infoOneTextContainer {
+  margin: 0 auto;
+  padding: 5rem;
+}
+
+.infoOneTitle {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.infoOneParagraph {
+  margin-bottom: 1rem;
+}
+
+.infoOneBtn {
+  background-color: var(--primary-dark);
+  color: white;
 }
