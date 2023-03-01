@@ -1,9 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import Product from "../ProductCard/ProductCard.component";
-import s from "./Shop.module.css";
 import { useNavigate } from "react-router-dom";
 import { LoginContext } from "../../contexts/LoginContext";
-import { CartContext } from "../../contexts/CartContext";
 import { PROXY } from "../../utils/config";
 
 const Shop = () => {
@@ -48,7 +46,7 @@ const Shop = () => {
 
   return (
     <>
-      <div className={s.productsContainer}>
+      <div className="grid grid-cols-2 p-8 max-w-2xl mx-auto gap-4">
         {data ? (
           data.map((item) => <Product key={item._id} item={item} data={data} />)
         ) : (

@@ -1,7 +1,6 @@
 import { useContext, useEffect } from "react";
-import { CartContext } from "../../contexts/CartContext";
-import s from "./Success.module.css";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../contexts/CartContext";
 
 const Success = () => {
   const { setCartItems } = useContext(CartContext);
@@ -10,10 +9,13 @@ const Success = () => {
   }, []);
 
   return (
-    <section className={s.container}>
+    <section className="h-screen w-full bg-white grid place-items-center text-center">
       <div>
-        <h1 className={s.title}>Thank you for your purchase!</h1>
-        <Link className={`${s.btn} ${s.btnDark}`} to="/">
+        <h1 className="text-5xl mb-8">Thank you for your purchase!</h1>
+        <Link
+          className="border-none py-2 px-4 cursor-pointer rounded-lg bg-gray-700 text-white"
+          to="/"
+        >
           Return home
         </Link>
       </div>

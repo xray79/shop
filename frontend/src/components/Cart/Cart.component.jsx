@@ -1,4 +1,3 @@
-import s from "./Cart.module.css";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import CartProduct from "../CartProduct/CartProduct.component";
@@ -31,7 +30,7 @@ const ShoppingCart = () => {
   };
 
   return (
-    <section className={s.container}>
+    <section className="max-w-2xl min-h-screen pt-12 pb-8 mx-auto">
       {isModalActive ? (
         <CheckoutModal
           isModalActive={isModalActive}
@@ -41,8 +40,8 @@ const ShoppingCart = () => {
       ) : (
         ""
       )}
-      <h1 className={s.title}>Shopping Cart</h1>
-      <div className={s.cartContainer}>
+      <h1 className="text-4xl mb-8">Shopping Cart</h1>
+      <div className="">
         {cartItems.map((i) => (
           <CartProduct
             key={i._id}
@@ -52,11 +51,17 @@ const ShoppingCart = () => {
           />
         ))}
       </div>
-      <button className={s.btn} onClick={handleClear}>
+      <button
+        className="border-none py-2 px-4 rounded-lg bg-amber-200"
+        onClick={handleClear}
+      >
         Clear Cart
       </button>
-      <p className={s.total}>Total: £{total}</p>
-      <button className={`${s.btn} ${s.checkout}`} onClick={handleCheckout}>
+      <p className="text-4xl mt-12 mb-2">Total: £{total}</p>
+      <button
+        className="border-none py-2 px-4 rounded-lg bg-amber-400"
+        onClick={handleCheckout}
+      >
         Payment Details
       </button>
     </section>

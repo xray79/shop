@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
-import s from "./ProductCard.module.css";
 
 /** item shape = {
  * id: num,
@@ -46,19 +45,28 @@ const Product = ({ item, data }) => {
   };
 
   return (
-    <div className={s.product}>
-      <div className={s.imgContainer}>
-        <img className={s.productImage} src={item.image} alt={item.title} />
+    <>
+      <div className="border border-black rounded hover:scale-105 hover:shadow-md transition-all active:scale-100">
+        <div className="mt-8 grid place-items-center">
+          <img
+            className="max-w-xs max-h-xs object-cover"
+            src={item.image}
+            alt={item.title}
+          />
+        </div>
+        <div className="p-4">
+          <h2>{item.title}</h2>
+          <span>£{item.price}</span>
+          <p>{item.description.split(" ").slice(0, 20).join(" ")}...</p>
+          <button
+            className="mt-4 py-2 px-4 border-none rounded-full text-black bg-blue-200 text-sm "
+            onClick={handleAddToCart}
+          >
+            Add to Cart
+          </button>
+        </div>
       </div>
-      <div className={s.textContainer}>
-        <h2>{item.title}</h2>
-        <span>£{item.price}</span>
-        <p>{item.description.split(" ").slice(0, 20).join(" ")}...</p>
-        <button className={s.link} onClick={handleAddToCart}>
-          Add to Cart
-        </button>
-      </div>
-    </div>
+    </>
   );
 };
 export default Product;

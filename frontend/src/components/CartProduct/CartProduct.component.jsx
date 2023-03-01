@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
-import s from "./CartProduct.module.css";
 
 const CartProduct = ({ item, update, setUpdate }) => {
   const { cartItems, setCartItems } = useContext(CartContext);
@@ -43,17 +42,28 @@ const CartProduct = ({ item, update, setUpdate }) => {
   };
 
   return (
-    <div className={s.cartProduct}>
+    <div className="p-4 my-4 rounded-lg bg-emerald-200">
       <h3>Cart Product: {item.title}</h3>
       <p>£{item.price}</p>
-      <div className={s.btnGroup}>
-        <button onClick={handleDecrement}>-</button>
+      <div className="flex gap-2">
+        <button
+          className="px-2 border-none rounded-lg bg-white"
+          onClick={handleDecrement}
+        >
+          -
+        </button>
         <input
+          className="border-none py-1 px-2 rounded-lg w-16 text-center"
           type="number"
           value={productQuantity}
           onChange={handleValueChange}
         />
-        <button onClick={handleIncrement}>+</button>
+        <button
+          className="px-2 border-none rounded-lg bg-white"
+          onClick={handleIncrement}
+        >
+          +
+        </button>
       </div>
     </div>
   );
