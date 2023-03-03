@@ -10,7 +10,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     fetch(PROXY + "/login", {
@@ -23,14 +23,14 @@ const Login = () => {
         userPassword: password,
       }),
     })
-      .then((res) => res.json())
-      .then((json) => {
+      .then(res => res.json())
+      .then(json => {
         console.log(json);
         if (json.token) {
           setLoginToken(json.token);
         }
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(err);
       });
   };
@@ -58,7 +58,7 @@ const Login = () => {
           id="email"
           placeholder="E-mail"
           value={email}
-          onChange={(e) => {
+          onChange={e => {
             setEmail(e.target.value);
           }}
         />
@@ -69,7 +69,7 @@ const Login = () => {
           id="password"
           placeholder="Password"
           value={password}
-          onChange={(e) => {
+          onChange={e => {
             setPassword(e.target.value);
           }}
         />
