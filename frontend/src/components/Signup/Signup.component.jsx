@@ -29,7 +29,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="mb-40">
+    <div className=" w-full h-screen mb-40">
       <h1 className="text-5xl my-12 mx-auto max-w-2xl">Register an account</h1>
       <form
         className="bg-slate-400 rounded-lg flex flex-col items-center gap-6 py-8 px-0 my-12 mx-auto max-w-2xl"

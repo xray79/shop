@@ -2,32 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --primary-dark: rgb(53, 49, 49);
-  --secondary-dark: rgb(37, 33, 33);
-  --primary-light: rgb(248, 237, 221);
-  --secondary-light: rgb(248, 244, 238);
-  --title-margin: 10rem;
-}
-
 html {
   font-family: "Nunito", "sans-serif";
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-.btn {
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
 }
