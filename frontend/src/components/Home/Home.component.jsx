@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Carousel from "../Carousel/Carousel.component";
+import Cards from "./Cards.component";
 
 const Home = () => {
   return (
@@ -27,35 +28,8 @@ const Home = () => {
         <Carousel />
       </section>
 
-      <section className="cardSection w-full bg-emerald-100" id="features">
-        <div className="cardsContainer w-3/4 mx-auto py-28">
-          <h2 className="cardsTitle text-4xl text-center">What We Offer</h2>
-
-          <div className="cardsGrid my-10 mx-auto grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center">
-            {[
-              [
-                "Price",
-                "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit quas, quod architecto cupiditate alias numquam voluptas! Unde eveniet culpa architecto.",
-              ],
-              [
-                "Delivery",
-                "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit quas, quod architecto cupiditate alias numquam voluptas! Unde eveniet culpa architecto.",
-              ],
-              [
-                "Convenience",
-                "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit quas, quod architecto cupiditate alias numquam voluptas! Unde eveniet culpa architecto.",
-              ],
-            ].map(([title, text], i) => (
-              <div
-                className="card bg-blue-900 text-white h-80 w-80 p-8 rounded-lg text-center flex flex-col justify-between"
-                key={i}
-              >
-                <h3 className="cardTitle text-3xl">{title}</h3>
-                <p className="cardText">{text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+      <section className="cardSection w-full bg-emerald-100" id="cards">
+        <Cards />
       </section>
 
       <section
