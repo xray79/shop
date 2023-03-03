@@ -19,15 +19,15 @@ const Shop = () => {
           Authorization: `Bearer ${loginToken}`,
         },
       })
-        .then((res) => res.json())
-        .then((json) => {
+        .then(res => res.json())
+        .then(json => {
           setData(
-            json.map((prod) => {
+            json.map(prod => {
               return { ...prod, quantity: 0 }; // add quantity prop
             })
           );
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
         });
 
@@ -46,9 +46,9 @@ const Shop = () => {
 
   return (
     <>
-      <div className="grid grid-cols-2 p-8 max-w-2xl mx-auto gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 p-8 max-w-2xl mx-auto gap-4">
         {data ? (
-          data.map((item) => <Product key={item._id} item={item} data={data} />)
+          data.map(item => <Product key={item._id} item={item} data={data} />)
         ) : (
           <div>Loading...</div>
         )}

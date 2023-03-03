@@ -46,7 +46,7 @@ const Product = ({ item, data }) => {
 
   return (
     <>
-      <div className="border border-black rounded hover:scale-105 hover:shadow-md transition-all active:scale-100">
+      <div className=" mb-4 overflow-hidden border border-black rounded transition-all hover:scale-105 hover:shadow-md  active:scale-100">
         <div className="mt-8 px-4 grid place-items-center">
           <img
             className="w-full max-h-xs object-cover"
@@ -57,7 +57,9 @@ const Product = ({ item, data }) => {
         <div className="p-4">
           <h2>{item.title}</h2>
           <span>£{item.price}</span>
-          <p>{item.description.split(" ").slice(0, 20).join(" ")}...</p>
+          <p className="">
+            {item.description.split(" ").slice(0, 20).join(" ")}...
+          </p>
           <button
             className="mt-4 py-2 px-4 border-none rounded-full text-black bg-blue-200 text-sm "
             onClick={handleAddToCart}
