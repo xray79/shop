@@ -23,12 +23,6 @@ const Navbar = () => {
         ) : (
           ""
         )}
-        <Link className="mx-4" to="about">
-          About
-        </Link>
-        <Link className="mx-4" to="contact">
-          Contact Us
-        </Link>
         {loginToken ? (
           <Link
             className="ml-4 cursor-pointer"

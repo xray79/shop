@@ -28,10 +28,7 @@ const Carousel = () => {
   };
 
   return (
-    <div
-      className="carouselContainer bg-red-500 relative w-full overflow-hidden h-96"
-      onlo
-    >
+    <div className="carouselContainer bg-red-500 relative w-full overflow-hidden h-96">
       <div className="buttonsContainer">
         <button
           className="absolute z-10 top-1/2 -translate-y-1/2 left-4 rounded-full p-2 bg-white"

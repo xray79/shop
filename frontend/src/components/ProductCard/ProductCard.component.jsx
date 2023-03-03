@@ -19,9 +19,9 @@ const Product = ({ item, data }) => {
     let cartPlaceholder = cartItems;
 
     // find match
-    const isMatch = cartPlaceholder.find((i) => i.id === item.id);
+    const isMatch = cartPlaceholder.find(i => i.id === item.id);
     if (isMatch) {
-      cartPlaceholder.forEach((i) => {
+      cartPlaceholder.forEach(i => {
         if (i.id === item.id) {
           i.quantity += 1;
         }
@@ -29,7 +29,7 @@ const Product = ({ item, data }) => {
 
       setCartItems(cartPlaceholder);
       // logs
-      cartItems.forEach((i) => {
+      cartItems.forEach(i => {
         console.log(i.title, i.quantity);
       });
       return;
@@ -39,7 +39,7 @@ const Product = ({ item, data }) => {
     cartPlaceholder.push({ ...item, quantity: (item.quantity += 1) });
     setCartItems(cartPlaceholder);
     // logs
-    cartItems.forEach((i) => {
+    cartItems.forEach(i => {
       console.log(i.title, i.quantity);
     });
   };
@@ -47,9 +47,9 @@ const Product = ({ item, data }) => {
   return (
     <>
       <div className="border border-black rounded hover:scale-105 hover:shadow-md transition-all active:scale-100">
-        <div className="mt-8 grid place-items-center">
+        <div className="mt-8 px-4 grid place-items-center">
           <img
-            className="max-w-xs max-h-xs object-cover"
+            className="w-full max-h-xs object-cover"
             src={item.image}
             alt={item.title}
           />
