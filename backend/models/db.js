@@ -6,9 +6,10 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then((dbObject) => {
+  .then(dbObject => {
     console.log("DB connected");
   })
-  .catch((err) => {
-    console.log("error", err);
+  .catch(err => {
+    console.log("MongoDB Error:", err);
+    console.log("MongoDB connect string:", process.env.DB_URL);
   });
