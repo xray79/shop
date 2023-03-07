@@ -22,14 +22,14 @@ const CheckoutModal = ({ isModalActive, setIsModalActive, total }) => {
       method: "POST",
       body: JSON.stringify(cartItems),
     })
-      .then((res) => {
+      .then(res => {
         if (res.ok) res.json();
       })
-      .then((json) => {
+      .then(json => {
         console.log(json);
         navigate("/success");
       })
-      .catch((err) => console.error(err));
+      .catch(err => console.error(err));
   };
 
   return (

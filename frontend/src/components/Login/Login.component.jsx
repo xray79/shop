@@ -5,10 +5,18 @@ import { PROXY } from "../../utils/config";
 
 const Login = () => {
   const { loginToken, setLoginToken } = useContext(LoginContext);
-
+  const [isInitialRender, setIsInitialRender] = useState(true);
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    if (isInitialRender) {
+      setIsInitialRender(false);
+    } else if (loginToken) {
+      navigate("/shop");
+    }
+  }, [loginToken]);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -35,17 +43,8 @@ const Login = () => {
       });
   };
 
-  const [isInitialRender, setIsInitialRender] = useState(true);
-  useEffect(() => {
-    if (isInitialRender) {
-      setIsInitialRender(false);
-    } else if (loginToken) {
-      navigate("/shop");
-    }
-  }, [loginToken]);
-
   return (
-    <div className="mb-40">
+    <div className="mb-40 min-h-screen">
       <h1 className="max-w-2xl my-12 mx-auto text-5xl">Log in here</h1>
       <form
         className="bg-slate-400 rounded-lg flex flex-col items-center gap-6 py-8 max-w-2xl my-12 mx-auto"

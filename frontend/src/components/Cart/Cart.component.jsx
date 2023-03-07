@@ -19,7 +19,7 @@ const ShoppingCart = () => {
 
   const calculateTotal = () => {
     let t = 0;
-    cartItems.forEach((i) => {
+    cartItems.forEach(i => {
       t += i.quantity * i.price;
     });
     setTotal(t);
@@ -42,7 +42,7 @@ const ShoppingCart = () => {
       )}
       <h1 className="text-4xl mb-8">Shopping Cart</h1>
       <div className="">
-        {cartItems.map((i) => (
+        {cartItems.map(i => (
           <CartProduct
             key={i._id}
             item={i}
