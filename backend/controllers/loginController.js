@@ -9,7 +9,7 @@ const controlLogin = async (req, res) => {
   const data = req.body;
 
   // verify a user exists
-  const mongooseResponse = await User.findOne({ email: data.userEmail });
+  const mongooseResponse = await User.findOne({ email: data.email });
   if (!mongooseResponse) {
     res.json({ message: "no user found" });
     return;
@@ -17,10 +17,10 @@ const controlLogin = async (req, res) => {
 
   // verify passwords match
   const isMatch = await bcrypt.compare(
-    data.userPassword,
+    data.password,
     mongooseResponse.password
   );
-  if (mongooseResponse.email !== data.userEmail || !isMatch) {
+  if (mongooseResponse.email !== data.email || !isMatch) {
     res.json({ message: "incorrect username or password" });
     return;
   }

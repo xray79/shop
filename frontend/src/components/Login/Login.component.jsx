@@ -7,9 +7,9 @@ const Login = () => {
   const { loginToken, setLoginToken } = useContext(LoginContext);
   const [isInitialRender, setIsInitialRender] = useState(true);
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [form, setForm] = useState({ email: "", password: "" });
 
+  // redirect to shop only if it is not initial render and if there is a login token
   useEffect(() => {
     if (isInitialRender) {
       setIsInitialRender(false);
@@ -18,18 +18,17 @@ const Login = () => {
     }
   }, [loginToken]);
 
+  // form submit handler
   const handleSubmit = e => {
     e.preventDefault();
 
+    // fetch request
     fetch(PROXY + "/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        userEmail: email,
-        userPassword: password,
-      }),
+      body: JSON.stringify(form),
     })
       .then(res => res.json())
       .then(json => {
@@ -41,6 +40,11 @@ const Login = () => {
       .catch(err => {
         console.error(err);
       });
+  };
+
+  // form change handler
+  const handleFormChange = e => {
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   return (
@@ -56,9 +60,9 @@ const Login = () => {
           name="email"
           id="email"
           placeholder="E-mail"
-          value={email}
+          value={form.email}
           onChange={e => {
-            setEmail(e.target.value);
+            handleFormChange(e);
           }}
         />
         <input
@@ -67,9 +71,9 @@ const Login = () => {
           name="password"
           id="password"
           placeholder="Password"
-          value={password}
+          value={form.password}
           onChange={e => {
-            setPassword(e.target.value);
+            handleFormChange(e);
           }}
         />
         <button
@@ -93,4 +97,5 @@ const Login = () => {
     </div>
   );
 };
+
 export default Login;

@@ -8,7 +8,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"npm run dev --prefix frontend\" \"nodemon index.js\"",
-    "start": "npm install && node index.js"
+    "start": "npm install && node index.js",
+    "build": "npm i --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",
