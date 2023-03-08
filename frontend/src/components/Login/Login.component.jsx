@@ -8,6 +8,7 @@ const Login = () => {
   const [isInitialRender, setIsInitialRender] = useState(true);
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
+  const [message, setMessage] = useState("");
 
   // redirect to shop only if it is not initial render and if there is a login token
   useEffect(() => {
@@ -32,9 +33,11 @@ const Login = () => {
     })
       .then(res => res.json())
       .then(json => {
-        console.log(json);
+        // redirect if there is a token, otherwise show error message
         if (json.token) {
           setLoginToken(json.token);
+        } else {
+          setMessage(json.message);
         }
       })
       .catch(err => {
@@ -50,6 +53,7 @@ const Login = () => {
   return (
     <div className="mb-40 min-h-screen">
       <h1 className="max-w-2xl my-12 mx-auto text-5xl">Log in here</h1>
+      {message ? <p className="mx-auto w-1/2">Error: {message}</p> : ""}
       <form
         className="bg-slate-400 rounded-lg flex flex-col items-center gap-6 py-8 max-w-2xl my-12 mx-auto"
         onSubmit={handleSubmit}
