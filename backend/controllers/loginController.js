@@ -40,34 +40,64 @@ const controlLogin = async (req, res) => {
 const controlSignup = async (req, res) => {
   const data = req.body;
   // data shape {
-  // userEmail: string,
-  // userPassword: String,
-  // userPasswordConfirm: string
+  // email: string,
+  // password: string,
+  // confirmPassword: string
   // }
 
   // verify data
-  if (data.userPassword.length < 6)
-    return res.json({ message: "password too short" });
-
-  const isRegistered = await User.findOne({ email: data.userEmail });
-  if (isRegistered) return res.json({ message: "user already registered" });
+  const valid = await verifyForm(data);
+  if (!valid.isValid) {
+    return res.json({ message: valid.message });
+  }
 
   // hash password with bcrypt
   const salt = await bcrypt.genSalt(Number(process.env.SALT_ROUNDS));
-  const hashedPassword = await bcrypt.hash(data.userPassword, salt);
+  const hashedPassword = await bcrypt.hash(data.password, salt);
 
   // create user
   const isCreated = await User.create({
-    email: data.userEmail,
+    email: data.email,
     password: hashedPassword,
   });
 
   if (isCreated)
-    res.json({
-      message: "signup successful",
+    return res.status(201).json({
+      message: "signup successful, redirecting...",
     });
 
   res.status(500).json({ message: "An internal error occured" });
 };
 
 module.exports = { controlLogin, controlSignup };
+
+const verifyForm = async data => {
+  // function performs checks to verify if signup form data is valid
+  // returns an object with props isValid and message
+
+  const valid = { isValid: true, message: null };
+
+  // check if registered
+  const isRegistered = await User.findOne({ email: data.email });
+  if (isRegistered) {
+    valid.isValid = false;
+    valid.message = "user already registered";
+    return valid;
+  }
+
+  // check passwords match
+  if (data.password !== data.confirmPassword) {
+    valid.isValid = false;
+    valid.message = "passwords do not match";
+    return valid;
+  }
+
+  // check password length
+  if (data.password.length < 6) {
+    valid.isValid = false;
+    valid.message = "password too short";
+    return valid;
+  }
+
+  return valid;
+};

@@ -1,36 +1,45 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { PROXY } from "../../utils/config";
 
 const Signup = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    const data = {
-      userEmail: email,
-      userPassword: password,
-      userConfirmPassword: confirmPassword,
-    };
 
     fetch(PROXY + "/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(form),
     })
-      .then((res) => res.json())
-      .then((json) => {
-        console.log(json);
+      .then(res => res.json())
+      .then(json => {
+        if (json.message) setMessage(json.message);
+        if (json.message === "signup successful, redirecting...") {
+          setTimeout(() => {
+            navigate("/login");
+          }, 3000);
+        }
       });
+  };
+
+  const handleFormChange = e => {
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   return (
     <div className=" w-full h-screen mb-40">
       <h1 className="text-5xl my-12 mx-auto max-w-2xl">Register an account</h1>
+      {message ? <p className="w-1/2 mx-auto">{message}</p> : ""}
       <form
         className="bg-slate-400 rounded-lg flex flex-col items-center gap-6 py-8 px-0 my-12 mx-auto max-w-2xl"
         onSubmit={handleSubmit}
@@ -41,9 +50,9 @@ const Signup = () => {
           name="email"
           id="email"
           placeholder="E-mail"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
+          value={form.email}
+          onChange={e => {
+            handleFormChange(e);
           }}
         />
         <input
@@ -52,20 +61,20 @@ const Signup = () => {
           name="password"
           id="password"
           placeholder="Password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
+          value={form.password}
+          onChange={e => {
+            handleFormChange(e);
           }}
         />
         <input
           className="w-80 h-12 rounded-lg border-none p-3"
           type="password"
-          name="passwordConfirm"
-          id="passwordConfirm"
+          name="confirmPassword"
+          id="confirmPassword"
           placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={(e) => {
-            setConfirmPassword(e.target.value);
+          value={form.confirmPassword}
+          onChange={e => {
+            handleFormChange(e);
           }}
         />
         <button
